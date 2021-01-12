@@ -21,7 +21,7 @@
 		display: inline-block;
 		margin:0px;
 		padding: 16px;
-		color:#90EBFF;
+		color:#F7F9F9;
 	}
 	._li{
 		list-style: none;
@@ -35,7 +35,8 @@
 		display: inline-block;
 		padding-right:20px;
 		color:#D5DBDB;
-		font-family: 'paybooc-Bold';
+		font-family : TmonMonsori, "GodoB", "굴림";
+		font-weight: 900;
 	}
 	.block{
 		text-align: center;
@@ -61,6 +62,41 @@
 		height: 63px;
 		background: #85929E;
 	}
+	.List-ShowDisplay{
+		display: none;
+		border:1.5px solid #ECF0F1;
+		background: #ECF0F1;
+		width: 45px;
+		height: 1px;
+		position: relative;
+		top:-8px;
+	}
+	.List-ShowDisplay::before{
+		display: inline-block;
+		position: absolute;
+		content: "";
+		border:1.5px solid #ECF0F1;
+		background: #ECF0F1;
+		width: 45px;
+		height: 1px;
+		top:-12px;
+		right: -1.5px;
+	}
+	.List-ShowDisplay::after{
+		display: inline-block;
+		position: absolute;
+		content: "";
+		border:1.5px solid #ECF0F1;
+		background: #ECF0F1;
+		width: 45px;
+		height: 1px;
+		top:9px;
+		right: -1.5px;
+	}
+	.Cheat-Viewauto:hover, .Cheat-Viewauto:hover:before, .Cheat-Viewauto:hover:after{
+		border-color:#000;
+		background: #000;
+	}
 	@media only screen and (max-width: 1450px){
 		.nav-div{
 			width: 80%;
@@ -71,12 +107,58 @@
 			width: 90%;
 		}
 	}
+	@media only screen and (max-width: 850px){
+		.li-xiicon{
+			display: block;
+			position: relative;
+		}
+		.li-xiicon>.all-header-li{
+			display: block;
+			text-align: center;
+			padding: 15px;
+		}
+		.header-bar{
+			height: 63px;
+			overflow: hidden;
+		}
+		.title{
+			width:50%;
+			text-align: left;
+		}
+		.block_list{
+			display: inline-block;
+			text-align: right;
+			width: 41%;
+		}
+		.List-ShowDisplay{
+			display: inline-block;
+			position: relative;
+			text-align: right;
+		}
+		.title-xi{
+			text-align: left;
+		}
+	}
+	@media only screen and (max-width: 600px){
+		.List-ShowDisplay, .List-ShowDisplay::before, .List-ShowDisplay::after{
+			border:1px solid #ECF0F1;
+			background: #ECF0F1;
+		}
+		.List-ShowDisplay::before, .List-ShowDisplay::after{
+			right: -1px;
+		}
+	}
 </style>
 <header class="header-bar">
 	<div class="block">
 		<nav class="nav-div">
 			<div class="title-xi">
 				<h1 class="title">KimMinUk</h1>
+				<div class="block_list">
+					<div class="hoverg">
+						<div class="List-ShowDisplay Cheat-Viewauto" id="NextCheck"></div>
+					</div>
+				</div>
 				<div class="li-xiicon">
 					<div class="all-header-li">
 						<i class="xi-home-o xicon-size"></i>
@@ -98,8 +180,28 @@
 						<i class="xi-browser-text xicon-size"></i>
 						<li class="Inline-Blog _li">Blog</li>
 					</div>
+					<div class="all-header-li">
+						<!-- 
+							white : xi-brightness
+							block : xi-crescent
+						-->
+						<i class="xi-brightness xicon-size xicon-check" style="color:#C0392B"></i>
+					</div>
 				</div>
 			</div>
 		</nav>
 	</div>
 </header>
+<script type="text/javascript">
+	$(".xicon-check").click(function(){
+		if($(".xicon-check").hasClass("xi-brightness")){
+			$(".xicon-check").removeClass("xi-brightness");
+			$(".xicon-check").addClass("xi-crescent");
+			$(".xicon-check").css("color","#0C77E1");
+		}else{
+			$(".xicon-check").removeClass("xi-crescent");
+			$(".xicon-check").addClass("xi-brightness");
+			$(".xicon-check").css("color","#C0392B");
+		}
+	});
+</script>
