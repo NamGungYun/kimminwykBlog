@@ -1,0 +1,9 @@
+$(".xicon-check").click(function(){
+	if($(".xicon-check").hasClass("xi-brightness")){
+		$(".xicon-check").removeClass("xi-brightness");
+		$(".xicon-check").addClass("xi-crescent");
+	}else{
+		$(".xicon-check").removeClass("xi-crescent");
+		$(".xicon-check").addClass("xi-brightness");
+	}
+});

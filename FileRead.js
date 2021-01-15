@@ -1,3 +1,3 @@
-exports.test = function(test) {
+/*exports.test = function(test) {
     console.log('test : ' + test);
-}
+}*/
