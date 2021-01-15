@@ -7,10 +7,10 @@ const Blog = express();
 
 //MyAbout Main express page
 
-MyAbout.use(express.static(__dirname + '/header'));
+MyAbout.use(express.static(__dirname + '/templates/header'));
 // /header/css or /header/js include
 MyAbout.get('/', function(req, res) {
-    res.sendFile(__dirname+'/header/');
+    res.sendFile(__dirname+'/templates/header/');
 });
 
 //Blog express page
