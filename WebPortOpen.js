@@ -1,5 +1,8 @@
 const express = require('express');
-const { setFlagsFromString } = require('v8');
+var moment = require('moment'); 
+var MySQLCnt = require('./MySQLCnt');
+require('moment-timezone');
+moment.tz.setDefault("Asia/Seoul");
 
 const Material = express();
 const MyAbout = express();
@@ -7,11 +10,22 @@ const Blog = express();
 
 //MyAbout Main express page
 
-MyAbout.use(express.static(__dirname + '/templates/header'));
 // /header/css or /header/js include
+MyAbout.use(express.static(__dirname + '/templates/header/css'));
+MyAbout.use(express.static(__dirname + '/templates/header/js'));
 MyAbout.get('/', function(req, res) {
-    res.sendFile(__dirname+'/templates/header/');
-});
+
+    var address = '112.154.52.10';
+
+    MySQLCnt.AddressCheck('112.154.52.10');
+
+    var DateTime = moment().format('YYYY-MM-DD HH:mm:ss');
+
+    const log = "["+address+"] GET / "+DateTime;
+    console.log(log);
+
+    res.sendFile(__dirname+'/templates/header/index.html');
+}); 
 
 //Blog express page
 Blog.get('/', function(req, res) {
