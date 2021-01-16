@@ -14,7 +14,9 @@ html,body{ margin:0px; background: #F2F3F4; }
 	width: 65%;
 }
 .title{
+	text-decoration: none;
 	display: inline-block;
+	cursor: pointer;
 	padding: 16px;
 	color:#F7F9F9;
 	margin:0px;
@@ -27,18 +29,20 @@ html,body{ margin:0px; background: #F2F3F4; }
 .all-header-li{
 	display: inline-block;
 	padding-right:20px;
-	font-weight: 550;
-	color:#D5DBDB;
 }
 .xicon-size{
 	vertical-align: middle;
 	font-size: 22px;
 	color:#ECF0F1;
 }
-._li{
+._li, ._li>a{
+	font-family: 'IBMPlexSansKR-Regular';
 	vertical-align: middle;
 	display: inline-block;
+	text-decoration: none;
 	list-style: none;
+	font-weight: 550;
+	color:#D5DBDB;
 }
 @media only screen and (max-width: 1450px){.nav-div{width: 80%;}}
 @media only screen and (max-width: 1100px){.nav-div{width: 90%;}}
